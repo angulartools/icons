@@ -21,7 +21,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
     standalone: true,
     imports: [FaIconComponent]
 })
-export class IconeComponent {
+export class IconComponent {
 
   icon;
 
