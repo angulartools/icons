@@ -18,7 +18,6 @@ import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
 @Component({
     selector: 'lib-icons',
     templateUrl: './icons.component.html',
-    standalone: true,
     imports: [FaIconComponent]
 })
 export class IconComponent {
