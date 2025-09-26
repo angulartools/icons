@@ -1,9 +1,9 @@
 {
   "name": "@angulartoolsdr/icons",
-  "version": "20.2.4",
+  "version": "20.3.2",
   "peerDependencies": {
-    "@angular/common": "20.2.4",
-    "@angular/core": "20.2.4",
+    "@angular/common": "20.3.2",
+    "@angular/core": "20.3.2",
     "@fortawesome/angular-fontawesome": "^3.0.0",
     "@fortawesome/free-solid-svg-icons": "^7.0.1"
   },
