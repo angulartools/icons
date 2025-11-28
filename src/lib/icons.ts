@@ -17,10 +17,10 @@ import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
 
 @Component({
     selector: 'lib-icons',
-    templateUrl: './icons.component.html',
+    templateUrl: './icons.html',
     imports: [FaIconComponent]
 })
-export class IconComponent {
+export class Icon {
 
   icon;
 
