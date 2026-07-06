@@ -1,5 +1,7 @@
-import { Component, Input} from '@angular/core';
+import { Component, ChangeDetectionStrategy, input, computed } from '@angular/core';
 import { FaIconComponent, SizeProp } from '@fortawesome/angular-fontawesome';
+import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
+
 import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
 import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
 import { faKey } from '@fortawesome/free-solid-svg-icons/faKey';
@@ -12,57 +14,59 @@ import { faBookmark } from '@fortawesome/free-solid-svg-icons/faBookmark';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons/faChevronLeft';
 import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
 
-//import { faHeart } from '@fortawesome/free-solid-svg-icons/faHeart';
-//import { faHeart as frHeart } from '@fortawesome/free-regular-svg-icons/faHeart';
-
 @Component({
-    selector: 'lib-icons',
-    templateUrl: './icons.html',
-    imports: [FaIconComponent]
+  selector: 'lib-icons',
+  templateUrl: './icons.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [FaIconComponent]
 })
 export class Icon {
 
-  icon;
+  tamanho = input<SizeProp>('sm');
 
-  @Input() tamanho: SizeProp = 'sm';
+  tipo = input<string>('');
 
-  @Input()
-  set tipo (value: string) {
-    switch (value) {
+  icon = computed<IconDefinition>(() => {
+
+    switch (this.tipo()) {
+
       case 'adicionar':
-        this.icon = faPlus;
-        break;
+        return faPlus;
+
       case 'seta-voltar':
-        this.icon = faChevronLeft;
-        break;
+        return faChevronLeft;
+
       case 'check':
-        this.icon = faCheck;
-        break;
+        return faCheck;
+
       case 'sobre':
-        this.icon = faInfoCircle;
-        break;
+        return faInfoCircle;
+
       case 'senha':
-        this.icon = faKey;
-        break;
+        return faKey;
+
       case 'logout':
-        this.icon = faSignOutAlt;
-        break;
+        return faSignOutAlt;
+
       case 'copyright':
-        this.icon = faCopyright;
-        break;
+        return faCopyright;
+
       case 'atualizar':
-        this.icon = faSyncAlt;
-        break;
+        return faSyncAlt;
+
       case 'manual':
-        this.icon = faBook;
-        break;
+        return faBook;
+
       case 'manifesto':
-        this.icon = faBookmark;
-        break;
+        return faBookmark;
+
       case 'user':
-        this.icon = faUser;
-        break;
+        return faUser;
+
+      default:
+        return faInfoCircle;
     }
-  }
-  constructor() {}
+
+  });
+
 }
